@@ -109,21 +109,7 @@ def opportunity_costs(d, rent, mortgage_payments, ownership_payments):
     """
     down_payment = d['home_price'] * d['down_payment']
     down_payment_opportunity_cost  = down_payment * (1 + d['stock_market']) ** d['years'] - down_payment
-    
-    rent_diff_opportunity_cost = 0
-    rate = 1 + d['stock_market']/12
-    months_left = d['years'] * 12
-    
-    for year in range(d['years']): 
-        for month in range(12):
-            i = year * month
-            net = mortgage_payments[i] + ownership_payments[i] - rent[i]
-            rent_diff_opportunity_cost += net * rate ** months_left
-            months_left -= 1
-            
-    #print ('Rent Diff Opportunity Cost: ', rent_diff_opportunity_cost)
-    
-    return  down_payment_opportunity_cost #+ rent_diff_opportunity_cost 
+    return  down_payment_opportunity_cost 
 
 
 def bottom_line(d, income = False):

@@ -46,6 +46,7 @@ def investment_return_on_stream(amounts, annual_rate):
         months_left -= 1
     return total
 
+
 def get_upfront_costs(d, verbose = True):
     """
     Up front costs are the downpayment 
